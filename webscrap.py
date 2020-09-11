@@ -28,15 +28,7 @@ def send_mail(data):
         
     EMAIL_ADD = 'corona.number.korea@gmail.com'
     EMAIL_PASS = 'Sltmdgus217@'
-
-    msg = EmailMessage()
-    msg['Subject'] = 'Corona Alert!' # enter subject of mail 
-    msg['From'] = 'corona.number.korea@gmail.com' # enter sender email
-    msg['To'] = 'corona.number.korea@gmail.com' # enter receiver email 
-    msg.set_content(string) # text if html is not read by email
-    
-    lst = data
-    
+        
     string =  'Total cases : {lst[0]} \
                Daily cases :{lst[1]} \
                Total testing : {lst[2]} \
@@ -45,6 +37,14 @@ def send_mail(data):
                Daily recovered: {lst[5]} \
                Total deaths : {lst[6]} \
                Daily deaths : {lst[7]} '
+
+    msg = EmailMessage()
+    msg['Subject'] = 'Corona Alert!' # enter subject of mail 
+    msg['From'] = 'corona.number.korea@gmail.com' # enter sender email
+    msg['To'] = 'corona.number.korea@gmail.com' # enter receiver email 
+    msg.set_content(string) # text if html is not read by email
+    
+    lst = data
 
     msg.add_alternative('''\
     <!doctype html>
