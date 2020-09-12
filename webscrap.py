@@ -79,6 +79,7 @@ while True:
     if cur_data[0] != original_data[0]:
         send_mail(cur_data)
         print('New data at {}'.format(datetime.datetime.now()))
+        original_data = cur_data 
     else:
         print('No new data at {}'.format(datetime.datetime.now()))
     
